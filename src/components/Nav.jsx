@@ -48,53 +48,11 @@ export default function Nav() {
           </li>
         </ul>
 
-        <button
-          className="block md:hidden"
-          onClick={toggleMenu}
-          aria-label="메뉴 열기"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
+        {/* 햄버거 */}
+        <button className="block md:hidden" onClick={toggleMenu}>
+          ㅡ
         </button>
       </nav>
-
-      {isMenuOpen && (
-        <div className="absolute top-[88px] left-0 right-0 bg-white shadow-lg z-50 py-4 md:hidden">
-          {/* 모바일에서 드롭다운 메뉴에 검색창 표시 */}
-          <form className="px-4 mb-4" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Search"
-              className="w-full rounded-[8px] p-3 border border-gray-300"
-              value={text}
-              onChange={handleChange}
-            />
-          </form>
-
-          <ul className="flex flex-col">
-            <li className="py-3 px-4 hover:bg-gray-100 cursor-pointer">하트</li>
-            <li className="py-3 px-4 hover:bg-gray-100 cursor-pointer">
-              장바구니
-            </li>
-            <li className="py-3 px-4 hover:bg-gray-100 cursor-pointer">
-              로그인
-            </li>
-          </ul>
-        </div>
-      )}
     </div>
   );
 }
